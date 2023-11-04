@@ -1,0 +1,56 @@
+# Resume Keyword Checker
+
+The Resume Keyword Checker is a simple web application built with Python and Flask that allows users to upload resumes and check for specific keywords within those resumes. Resumes are processed and categorized as either successful (containing keywords) or failed (not containing keywords). This project is useful for HR departments and recruitment teams to streamline the resume screening process.
+
+## Features
+
+- Upload one or multiple resumes at a time.
+- Specify keywords for resume scanning.
+- Automatically categorize resumes as successful or failed.
+- Display the number of resumes processed successfully.
+
+## Prerequisites
+
+Before you start, make sure you have the following requirements installed:
+
+- Python
+- Flask
+- pdfplumber
+
+You can install the required packages using pip:
+
+```bash
+pip install Flask pdfplumber
+
+
+How to Use
+Clone the repository to your local machine:
+bash
+Copy code
+git clone https://github.com/your-username/resume-keyword-checker.git
+Navigate to the project directory:
+bash
+Copy code
+cd resume-keyword-checker
+Run the Flask application:
+bash
+Copy code
+python app.py
+Open your web browser and go to http://127.0.0.1:5000/.
+
+Use the web interface to upload resumes and specify keywords.
+
+The application will categorize the resumes and provide feedback on the number of resumes processed successfully.
+
+Project Structure
+The project is organized as follows:
+
+app.py: The main Flask application.
+templates/index.html: The HTML template for the web interface.
+uploads/: A folder to store uploaded resumes.
+successful_resumes/: A folder to store resumes with matching keywords.
+failed_resumes/: A folder to store resumes without matching keywords.
+styles.css: The CSS file for styling the web interface.
+
+Contributing
+Feel free to contribute to this project by creating issues, proposing enhancements, or submitting pull requests.
