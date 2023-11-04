@@ -1,0 +1,1 @@
+All successful resumes will get stored in this folder.
