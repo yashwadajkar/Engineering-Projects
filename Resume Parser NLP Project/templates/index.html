@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Keyword Checker</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="input-container">
+                <label for="keywords">Enter keywords separated by a comma:</label>
+                <input type="text" id="keywords" name="keywords" placeholder="e.g., skill1, skill2, skill3" required>
+            </div>
+            <div class="input-container">
+                <label for="resumes">Select one or more resumes (PDF only):</label>
+                <input type="file" id="resumes" name="resumes" accept=".pdf" multiple required>
+            </div>
+            <button type="submit" class="upload-button">Upload Resumes</button>
+        </form>
+        <div class="result-container">
+            <h2>Results:</h2>
+            <p>{{ message }}</p>
+        </div>
+    </div>
+</body>
+</html>
