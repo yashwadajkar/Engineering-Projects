@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This website is developed to identify the safety of URLs.">
+    <meta name="keywords" content="phishing URL, phishing, cyber security, machine learning, classifier, Python">
+    <meta name="author" content="PHISHEILD">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+            font-size: 62,5%;
+        }
+
+        body {
+            padding: 10% 5%;
+            background: #fff; /* White background */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333; /* Dark gray text color */
+        }
+
+        h1 {
+            font-weight: bold; /* Bold text */
+            text-transform: uppercase; /* Capitalize text */
+            text-align: center; /* Center align text */
+            margin-bottom: 3rem; /* Add some margin below the title */
+        }
+
+        .form-card {
+            background-color: #f8f9fa; /* Light gray background color for cards */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add shadow */
+            padding: 30px; /* Increased padding */
+            flex: 1; /* Allow cards to grow */
+            margin: 0 10px; /* Increased margin between cards */
+            text-align: center; /* Center align text */
+            height: 350px; /*Height set to 50px*/
+            align-content: center; /*Align conetent to center*/
+        }
+
+        .button {
+            width: 100%; /* Full width buttons */
+            margin-top: 1rem; /* Add some spacing between buttons */
+            background-color: #007bff; /* Blue background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Center align text */
+            height: 3rem; /* Increase button height */
+            box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2); /* Add shadow */
+        }
+
+        .input-field {
+            width: calc(100% - 26px); /* Set the width to match the button */
+            margin-right: 10px; /* Add some margin to separate from the button */
+            height: 3rem; /* Match the button height */
+        }
+
+        .copyright {
+            text-align: center; /* Center align copyright text */
+            margin-top: 3rem; /* Add some margin */
+        }
+    </style>
+    <title>URL detection</title>
+</head>
+<body>
+    <div class="container">
+        <h1>PHISHEILD</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="form-card">
+                    <h2>Input URL</h2>
+                    <br>
+                    <form action="/" method="post">
+                        <input type="text" class="form-control input-field" name='url' id="url" placeholder="Enter URL" required="" />
+                        <button class="button" role="button">Analyze</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5" id="resultCard">
+                <div class="form-card" id="resultCardContent">
+                    <h2>Results</h2>
+                    <br>
+                    <h6 class="right"><a href="{{ url }}" target="_blank">{{ url }}</a></h6>
+                    <h3 id="prediction"></h3>
+                    <button class="button" role="button" onclick="window.open('{{url}}')" target="_blank">Continue</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>©2024 PHISHEILD</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        let x = '{{xx}}';
+        let num = x * 100;
+        if (0 <= x && x < 0.50) {
+            num = 100 - num;
+        }
+        let txtx = num.toString();
+        if (x <= 1 && x >= 0.50) {
+            var label = "Website is " + txtx + "% safe to use...";
+            document.getElementById("prediction").innerHTML = label;
+            document.getElementById("resultCardContent").style.backgroundColor = '#4dff4d'; // Green background for safe website
+        } else if (0 <= x && x < 0.50) {
+            var label = "Website is " + txtx + "% unsafe to use..."
+            document.getElementById("prediction").innerHTML = label;
+            document.getElementById("resultCardContent").style.backgroundColor = '#ff3333'; // Red background for unsafe website
+        }
+    </script>
+
+</body>
+</html>
